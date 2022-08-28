@@ -1,0 +1,14 @@
+com\pravada\retailapp\myRetail\dto\RedskyClientProductResponseDTO.class
+com\pravada\retailapp\myRetail\MyRetailApplication.class
+com\pravada\retailapp\myRetail\dto\Data.class
+com\pravada\retailapp\myRetail\dto\ProductPriceDTO.class
+com\pravada\retailapp\myRetail\repository\ProductRepository.class
+com\pravada\retailapp\myRetail\redskyClient\RedskyClient.class
+com\pravada\retailapp\myRetail\controller\ProductController.class
+com\pravada\retailapp\myRetail\dto\Item.class
+com\pravada\retailapp\myRetail\dto\ProductDescription.class
+com\pravada\retailapp\myRetail\Modal\ProductPricing.class
+com\pravada\retailapp\myRetail\dto\Product.class
+com\pravada\retailapp\myRetail\service\ProductServiceImpl.class
+com\pravada\retailapp\myRetail\dto\ProductInfoDTO.class
+com\pravada\retailapp\myRetail\service\ProductService.class
