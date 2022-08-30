@@ -1,4 +1,4 @@
-# my-retail
+# my-retail Application
 
 ## Description
 my-retail is a web application with RESTful webservices that expose internal data to its clients, to provide product information and pricing using REST APIs that clients can access for this information.
