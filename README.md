@@ -26,10 +26,19 @@ Java
 MongoDb
 
 ## Running the app
+### 1. Method 1
 my-retail is a Spring Boot application and can be cloned into a Java machine and using an IDE, can be started by using the "Run as Spring boot app" option.
 **Docker - pending
 Once the app is up and started, using the following GET URL to retrieve product info by id:
 http://localhost:8080/myRetail/products?productId=13860428
+
+### 2. Method 2
+The app is now hosted on Azure as an app service. It can be deployedto Azure but using maven command
+>mvn package azure-webapp:deploy
+<img width="911" alt="image" src="https://user-images.githubusercontent.com/9792815/187345084-23563b3d-fe53-4e06-97e1-c7ba16202172.png">
+
+
+
 
 
 
