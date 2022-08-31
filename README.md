@@ -38,7 +38,7 @@ http://localhost:8080/myRetail/products?productId=13860428
 The app is now hosted on Azure as an app service. It can be deployed to Azure by using the maven command as below
 >mvn package azure-webapp:deploy - already taken care of for purposes of this project
 <img width="911" alt="image" src="https://user-images.githubusercontent.com/9792815/187345084-23563b3d-fe53-4e06-97e1-c7ba16202172.png">
-![image](https://user-images.githubusercontent.com/9792815/187765519-57887540-bb68-410d-b8d4-02df9340cddf.png)
+<img width="911" alt="image" src="https://user-images.githubusercontent.com/9792815/187765519-57887540-bb68-410d-b8d4-02df9340cddf.png">
 
 
 
