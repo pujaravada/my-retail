@@ -16,15 +16,16 @@ This app has a GET API-
     }
     
 
-## Data Source - 2 sources
+### Data Source - 2 sources
 1. The Product info comes from an external API from the given Redsky URL
 2. The pricing info is sourced from a hosted NoSQL data store, MongoDb, thats running on a mongo cluster instance at https://cloud.mongodb.com/ using Mongo Atlas
 
-## Tech stack
+### Tech stack
 Spring Boot | 
 Java |
 Azure |
-MongoDb 
+MongoDb |
+Maven
 
 ## Running the app
 ### 1. Method 1 - Locally as Spring boot
@@ -37,6 +38,8 @@ http://localhost:8080/myRetail/products?productId=13860428
 The app is now hosted on Azure as an app service. It can be deployed to Azure by using the maven command as below
 >mvn package azure-webapp:deploy - already taken care of for purposes of this project
 <img width="911" alt="image" src="https://user-images.githubusercontent.com/9792815/187345084-23563b3d-fe53-4e06-97e1-c7ba16202172.png">
+![image](https://user-images.githubusercontent.com/9792815/187765519-57887540-bb68-410d-b8d4-02df9340cddf.png)
+
 
 
 ## Accessing the API
