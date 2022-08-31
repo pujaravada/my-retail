@@ -34,7 +34,7 @@ my-retail is a Spring Boot application and can be cloned into a Java machine and
 Once the app is up and started, using the following GET URL to retrieve product info by id:
 http://localhost:8080/myRetail/products?productId=13860428
 
-### 2. Method 2 - It's live on Azure
+### 2. Method 2 - It's live on Azure!!
 The app is now hosted on Azure as an app service. It can be deployed to Azure by using the maven command as below
 >mvn package azure-webapp:deploy - already taken care of for purposes of this project
 <img width="911" alt="image" src="https://user-images.githubusercontent.com/9792815/187345084-23563b3d-fe53-4e06-97e1-c7ba16202172.png">
@@ -48,7 +48,7 @@ The app is now hosted and running for the next few days on Azure as an appservic
 The database is hosted and running on Mongo Atlas
 
 
-*Note - For purposes of this project, I've kept the db fields down to 4 only.
+*Note - For purposes of this project, I've kept the db fields down to 4.
 
 
 
