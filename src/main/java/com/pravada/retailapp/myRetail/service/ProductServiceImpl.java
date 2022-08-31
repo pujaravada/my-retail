@@ -1,5 +1,7 @@
 package com.pravada.retailapp.myRetail.service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import com.pravada.retailapp.myRetail.repository.ProductRepository;
 @Service
 public class ProductServiceImpl implements ProductService {
 
+	public static Logger logger = LogManager.getLogger(ProductServiceImpl.class);
+
 	@Autowired
 	private RedskyClient redskyClient;
 
@@ -23,6 +27,7 @@ public class ProductServiceImpl implements ProductService {
 	public ProductInfoDTO getProductInfoById(int productId) {
 		final ProductInfoDTO productInfo = new ProductInfoDTO();
 		try {
+			logger.info("Entering the RedSky client... ");
 
 			// GET CALL to get product name
 			RedskyClientProductResponseDTO clientProductResponse = redskyClient.getProductInfo(productId);
@@ -33,57 +38,37 @@ public class ProductServiceImpl implements ProductService {
 
 			// DB call to get pricing info
 			ProductPriceDTO productPriceDTO = new ProductPriceDTO();
-
 			ProductPricing productPricingInfo = getProductPricingById(productId);
 
-			productPriceDTO.setProductPrice(productPricingInfo.getPrice());
-			productPriceDTO.setCurrencyCode(productPricingInfo.getCurrencyCode());
-			productInfo.setCurrentPrice(productPriceDTO);
+			if (productPricingInfo != null) {
+
+				productPriceDTO.setProductPrice(productPricingInfo.getPrice());
+				productPriceDTO.setCurrencyCode(productPricingInfo.getCurrencyCode());
+				productInfo.setCurrentPrice(productPriceDTO);
+			} else {
+				logger.warn("ProductPricing is missing from the db");
+			}
 
 		} catch (final Exception e) {
-			System.out.println("Exception occured in service call for getProductInfoById..." + e.getMessage());
+			logger.error("Exception occured in service call for getProductInfoById..." + e.getMessage());
 
 		}
 
 		return productInfo;
 	}
 
+	/**
+	 * gets the product pricing from db
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public ProductPricing getProductPricingById(Integer id) {
-		System.out.println("Getting product pricing by id: " + id);
+		logger.info("Getting product pricing by id: " + id);
 		ProductPricing productPricing = new ProductPricing();
 		// DB CALL
 		productPricing = productRepository.findByProductId(id);
-		System.out.println(productPricing.toString());
 		return productPricing;
-	}
-
-	@Override
-	public ProductInfoDTO updateProductInfoById(ProductInfoDTO productInfoDTO) {
-
-		// DB CALL to get product name and old price
-		ProductPricing productPricing = productRepository.findByProductId(productInfoDTO.getId());
-
-		// set variabkes to be edited
-		productPricing.setPrice(productInfoDTO.getCurrentPrice().getProductPrice());
-		
-		System.out.println("Product pricing to be uodated is .. "+productPricing);
-
-		// Update DB with new price
-		ProductPricing updateProductPricing = productRepository.saveOrUpdate(productPricing);
-
-		
-		if(null != updateProductPricing) {
-			// Return new price object in response
-			ProductPriceDTO newPriceInfo = new ProductPriceDTO();
-			newPriceInfo.setProductPrice(updateProductPricing.getPrice());
-			newPriceInfo.setCurrencyCode(updateProductPricing.getCurrencyCode());
-			productInfoDTO.setCurrentPrice(newPriceInfo);
-		} else { 
-			System.out.println("Price not updated");
-			productInfoDTO = null;
-		}
-		
-		return productInfoDTO;
 	}
 
 }

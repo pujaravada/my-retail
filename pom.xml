@@ -51,10 +51,34 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>5.2.8.RELEASE</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- <plugin>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <version>3.1</version>
+	            <configuration>
+	                <fork>true</fork>
+	                <executable>C:\Program Files\Java\jdk1.7.0_45\bin\javac.exe</executable>
+	            </configuration>
+	        </plugin> -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -68,9 +92,9 @@
 					<subscriptionId>0a76810c-36c8-4a81-874a-ddbe1f6be082</subscriptionId>
 					<resourceGroup>puja-ravada-retail-rg</resourceGroup>
 					<appName>my-retail-appservice</appName>
-					<appServicePlanName>>my-retail-appserviceplan</appServicePlanName>
+					<appServicePlanName>my-retail-appserviceplan</appServicePlanName>
 					<pricingTier>B1</pricingTier>
-					<region>westus</region>
+					<region>centralus</region>
 					<runtime>
 						<os>Linux</os>
 						<javaVersion>Java 8</javaVersion>
