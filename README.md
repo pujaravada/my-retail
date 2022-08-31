@@ -25,7 +25,8 @@ Spring Boot |
 Java |
 Azure |
 MongoDb |
-Maven
+Maven | 
+Logging
 
 ## Running the app
 ### 1. Method 1 - Locally as Spring boot
